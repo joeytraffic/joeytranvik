@@ -1,16 +1,14 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap");
+
+html {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  background-color: #597889;
+}
+
 .App {
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
 }
 
 .App-header {
@@ -20,7 +18,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  /* font-size: calc(10px + 2vmin); */
   color: white;
 }
 
@@ -28,11 +26,133 @@
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/* custom classnames */
+
+.initial {
+  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0), #597889),
+    url("./images/cloudy-clouds.jpg");
+  background-position: center bottom 5%;
+  min-height: 100vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.rain {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 30%;
+}
+
+.content-container {
+  position: relative;
+  z-index: 2;
+}
+
+.topBar {
+  display: inline;
+}
+
+.navBar {
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 20vw;
+  padding-right: 20vw;
+  padding-top: 3vh;
+  color: white;
+  text-shadow: 2px 2px 8px #4f6b7a, -2px -2px 8px #597889;
+  user-select: none;
+  font-family: "Montserrat", sans-serif;
+}
+
+.logo-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 2; /* Set the z-index to ensure it's above the rain */
+}
+
+.logo {
+  max-width: 20%;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  display: block;
+  margin: 0 auto; /* Center the logo horizontally */
+}
+
+.drop {
+  position: absolute;
+  bottom: 100%;
+  width: 10px;
+  height: 120px;
+  pointer-events: none;
+  animation: drop 0.5s linear infinite;
+}
+
+@keyframes drop {
+  0% {
+    transform: translateY(0vh);
   }
-  to {
-    transform: rotate(360deg);
+  75% {
+    transform: translateY(90vh);
   }
+  100% {
+    transform: translateY(90vh);
+  }
+}
+
+.stem {
+  width: 2px;
+  height: 60%;
+  margin-left: 7px;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0),
+    rgba(255, 255, 255, 0.25)
+  );
+  animation: stem 0.5s linear infinite;
+}
+
+@keyframes stem {
+  0% {
+    opacity: 1;
+  }
+  65% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.nameBig {
+  font-family: "Montserrat", sans-serif;
+  text-emphasis: none;
+  color: white;
+  font-size: 40px;
+  padding: none;
+  user-select: none;
+}
+
+.aboutSmall {
+  font-family: "Montserrat", sans-serif;
+  color: white;
+  padding: none;
+  user-select: none;
 }
