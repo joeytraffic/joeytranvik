@@ -148,6 +148,8 @@ html {
   font-size: 40px;
   padding: none;
   user-select: none;
+  text-align: center;
+  text-shadow: 2px 2px 8px #4f6b7a, -2px -2px 8px #597889;
 }
 
 .aboutSmall {
@@ -155,4 +157,87 @@ html {
   color: white;
   padding: none;
   user-select: none;
+  text-align: center;
+  text-shadow: 2px 2px 8px #4f6b7a, -2px -2px 8px #597889;
+}
+
+.main-container {
+  position: relative;
+  overflow: hidden;
+  height: 40vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Vertically center the content */
+  align-items: center; /* Horizontally center the content */
+  background: linear-gradient(to top, #597889, #00000000, #597889);
+}
+
+/* Add these styles for the clouds */
+.clouds {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1; /* Behind the content */
+  display: flex; /* Use flex to center images */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  opacity: 30%;
+}
+
+.cloud {
+  position: absolute;
+  animation-duration: 30s; /* Adjust the animation duration as needed */
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  transform-origin: left center;
+}
+
+.cloud1 {
+  animation-name: moveCloud1;
+}
+
+.cloud2 {
+  animation-name: moveCloud2;
+}
+
+.cloud3 {
+  animation-name: moveCloud3;
+}
+
+@keyframes moveCloud1 {
+  0% {
+    transform: translateX(-20%);
+  }
+  100% {
+    transform: translateX(120%);
+  }
+}
+
+@keyframes moveCloud2 {
+  0% {
+    transform: translateX(
+      -10%
+    ); /* Adjust the speed by changing the initial position */
+  }
+  100% {
+    transform: translateX(
+      60%
+    ); /* Adjust the speed by changing the final position */
+  }
+}
+
+@keyframes moveCloud3 {
+  0% {
+    transform: translateX(
+      -5%
+    ); /* Adjust the speed by changing the initial position */
+  }
+  100% {
+    transform: translateX(
+      30%
+    ); /* Adjust the speed by changing the final position */
+  }
 }
