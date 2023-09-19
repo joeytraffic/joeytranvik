@@ -10,7 +10,7 @@ const Main = () => {
         <img className="cloud cloud2" src={cloud2} alt="Cloud 2" />
         <img className="cloud cloud3" src={cloud3} alt="Cloud 3" />
       </div>
-      <div className="about">
+      <div className="about" id="#about">
         <span className="nameBig">Joey Tranvik</span>
         <p className="aboutSmall">
           a classically trained pianist, composer, and producer.
