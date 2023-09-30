@@ -44,14 +44,14 @@ const Initial = () => {
             >
               <img src={instagram} alt="instagram" className="socialLogo" />
             </a>
-            <a
+            {/* <a
               href="https://twitter.com/joeytraffic"
               className="socialLink"
               target="_blank"
             >
               {" "}
               <img src={xtwitter} alt="twitter" className="socialLogo" />
-            </a>
+            </a> */}
             <a
               href="https://open.spotify.com/artist/0EwxM1Pv0584OF4jZsG8TI?si=qt4ehNSfTDSOo9gjPLkOhg"
               className="socialLink"

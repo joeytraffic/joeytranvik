@@ -1,16 +1,19 @@
 import "./App.css";
+
 import Initial from "./components/Initial";
-import Main from "./components/Main";
+import About from "./components/About";
 import Footer from "./components/Footer";
-import Music from "./components/music";
+import Music from "./components/Music";
 
 function App() {
   return (
     <div className="App">
-      <Initial />
-      <Main />
-      <Music />
-      <Footer />
+      <div className="custom-scrollbar">
+        <Initial />
+        <About />
+        <Music />
+        <Footer />
+      </div>
     </div>
   );
 }

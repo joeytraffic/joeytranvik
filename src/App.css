@@ -9,6 +9,46 @@ html {
 
 .App {
   text-align: center;
+  width: 100%;
+  background-image: linear-gradient(to bottom, #ffffff00, #597889),
+    url("./images/cloudy-clouds.jpg");
+}
+
+::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar {
+  width: auto;
+  height: 100vh;
+  /* position: absolute; */
+  overflow-y: scroll;
+
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 9px;
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #ffffff92;
+  height: 10px;
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #ffffff;
 }
 
 .App-header {
@@ -28,11 +68,11 @@ html {
 /* custom classnames */
 
 .initial {
-  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0), #597889),
-    url("./images/cloudy-clouds.jpg");
+  /* background-image: linear-gradient(to bottom, #ffffff00, #597889),
+    url("./images/cloudy-clouds.jpg"); */
   background-position: center bottom 5%;
   min-height: 100vh;
-  background-size: cover;
+
   background-repeat: no-repeat;
   position: relative;
 }
@@ -71,7 +111,6 @@ html {
   padding-right: 3vh;
   padding-top: 3vh;
   color: white;
-  text-shadow: 2px 2px 8px #4f6b7a, -2px -2px 8px #597889;
   user-select: none;
   font-family: "Montserrat", sans-serif;
 }
@@ -79,12 +118,12 @@ html {
 .navItem {
   padding: 1vh;
   margin: 1vh;
-  font-size: 1.5em;
+  font-size: 1.9em;
   text-decoration: none;
   color: white;
-  text-shadow: 2px 2px 8px #4f6b7a, -2px -2px 8px #597889;
   user-select: none;
   font-family: "Montserrat", sans-serif;
+  text-shadow: 2px 2px 8px #2f4049, -2px -2px 8px #2f4049;
 }
 
 .icons {
@@ -176,7 +215,7 @@ html {
   padding: none;
   user-select: none;
   text-align: center;
-  text-shadow: 2px 2px 8px #4f6b7a, -2px -2px 8px #597889;
+  text-shadow: 3px 3px 9px #2f4049, -3px -3px 8px #2f4049;
 }
 
 .aboutSmall {
@@ -185,10 +224,10 @@ html {
   padding: none;
   user-select: none;
   text-align: center;
-  text-shadow: 2px 2px 8px #4f6b7a, -2px -2px 8px #597889;
+  text-shadow: 2px 2px 8px #2f4049, -2px -2px 8px #2f4049;
 }
 
-.main-container {
+.about-container {
   position: relative;
   overflow: hidden;
   height: 40vh;
@@ -196,7 +235,13 @@ html {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(to top, #597889, #00000000, #597889);
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 10%,
+    black 90%,
+    transparent
+  );
 }
 
 .clouds {
@@ -206,11 +251,17 @@ html {
   width: 100%;
   height: 100%;
   pointer-events: none;
-  z-index: -1;
   display: flex;
   justify-content: center;
   align-items: center;
-  opacity: 30%;
+  opacity: 20%;
+  mask-image: linear-gradient(
+    to top,
+    transparent,
+    black 40%,
+    black 60%,
+    transparent
+  );
 }
 
 .cloud {
@@ -223,14 +274,17 @@ html {
 
 .cloud1 {
   animation-name: moveCloud1;
+  user-select: none;
 }
 
 .cloud2 {
   animation-name: moveCloud2;
+  user-select: none;
 }
 
 .cloud3 {
   animation-name: moveCloud3;
+  user-select: none;
 }
 
 @keyframes moveCloud1 {
@@ -260,12 +314,29 @@ html {
   }
 }
 
-
-
 .music-main {
   max-width: auto;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.releases-container {
+  max-width: 80%;
+  align-items: baseline;
+  max-height: fit-content;
+  position: relative;
+  margin: 10vh;
+}
+
+.latest-releases {
+  font-family: "Montserrat", sans-serif;
+  text-emphasis: none;
+  color: white;
+  font-size: 40px;
+  user-select: none;
+  text-align: center;
+  text-shadow: 2px 2px 8px #4f6b7a, -2px -2px 8px #597889;
 }
 
 .music-container {
@@ -273,6 +344,7 @@ html {
   align-items: center;
   max-height: fit-content;
   position: relative;
+  height: 50vh;
 }
 
 .music-container .slick-list {
@@ -289,12 +361,22 @@ html {
   z-index: 2;
 }
 
+.slider-container {
+  mask-image: linear-gradient(
+    to left,
+    transparent,
+    black 10%,
+    black 90%,
+    transparent
+  );
+}
 
 .music-item {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100%;
+  /* background-color: red; */
 }
 
 .slick-track {
@@ -311,19 +393,6 @@ html {
   align-items: center;
   overflow: hidden;
 }
-
-.music-container .mask-overlay.right {
-  right: 0;
-  left: auto;
-  background: linear-gradient(to right, transparent, #597889);
-}
-
-.music-container .mask-overlay.left {
-  left: 0;
-  right: auto;
-  background: linear-gradient(to left, transparent, #597889);
-}
-
 
 .lds-facebook {
   display: inline-block;
@@ -356,11 +425,20 @@ html {
     top: 8px;
     height: 64px;
   }
-  50%, 100% {
+  50%,
+  100% {
     top: 24px;
     height: 32px;
   }
 }
 
+.next-arrow,
+.prev-arrow {
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
 
 /* MAKE SCREEN COLLAPSE AT 772PX */
