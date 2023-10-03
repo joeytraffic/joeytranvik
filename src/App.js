@@ -4,6 +4,7 @@ import Initial from "./components/Initial";
 import About from "./components/About";
 import Footer from "./components/Footer";
 import Music from "./components/Music";
+import ComingSoon from "./components/ComingSoon";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Initial />
         <About />
         <Music />
+        <ComingSoon />
         <Footer />
       </div>
     </div>

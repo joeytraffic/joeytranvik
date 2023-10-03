@@ -54,7 +54,7 @@ const Music = () => {
   };
 
   return (
-    <div className="music-main">
+    <div className="music-main" id="music">
       <div className="releases-container">
         <span className="latest-releases">Latest releases</span>
       </div>
@@ -75,7 +75,7 @@ const Music = () => {
                   <iframe
                     src={item.src}
                     width="80%"
-                    height={item.height * 1.8}
+                    height={item.height * 2.3}
                     frameBorder="0"
                     allowFullScreen={false}
                     allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"

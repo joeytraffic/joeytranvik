@@ -4,7 +4,7 @@ import cloud3 from "../images/clouds/cloud3.png";
 
 const About = () => {
   return (
-    <div className="about-container">
+    <div className="about-container" id="about">
       <div className="clouds">
         <img className="cloud cloud1" src={cloud1} alt="Cloud 1" />
         <img className="cloud cloud2" src={cloud2} alt="Cloud 2" />

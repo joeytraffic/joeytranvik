@@ -5,6 +5,7 @@ html {
   margin: 0;
   border: 0;
   background-color: #597889;
+  scroll-behavior: smooth;
 }
 
 .App {
@@ -26,7 +27,6 @@ html {
 .custom-scrollbar {
   width: auto;
   height: 100vh;
-  /* position: absolute; */
   overflow-y: scroll;
 
   background: transparent;
@@ -65,16 +65,12 @@ html {
   color: #61dafb;
 }
 
-/* custom classnames */
-
 .initial {
-  /* background-image: linear-gradient(to bottom, #ffffff00, #597889),
-    url("./images/cloudy-clouds.jpg"); */
   background-position: center bottom 5%;
   min-height: 100vh;
-
   background-repeat: no-repeat;
   position: relative;
+  overflow-x: hidden;
 }
 
 .rain {
@@ -91,6 +87,8 @@ html {
 .content-container {
   position: relative;
   z-index: 2;
+  display: flex;
+  flex-direction: column;
 }
 
 .topBar {
@@ -105,8 +103,6 @@ html {
   list-style-type: none;
   align-items: center;
   justify-content: space-between;
-  /* padding-left: 20vw; */
-  /* padding-right: 20vw; */
   padding-left: 3vh;
   padding-right: 3vh;
   padding-top: 3vh;
@@ -118,7 +114,7 @@ html {
 .navItem {
   padding: 1vh;
   margin: 1vh;
-  font-size: 1.9em;
+  font-size: 1.79em;
   text-decoration: none;
   color: white;
   user-select: none;
@@ -126,15 +122,57 @@ html {
   text-shadow: 2px 2px 8px #2f4049, -2px -2px 8px #2f4049;
 }
 
+.joey-tranvik {
+  display: none;
+}
+
+.bars {
+  display: none;
+  z-index: 999;
+}
+
+.mobile-menu {
+  position: relative;
+  right: -100%;
+  width: 0;
+  height: auto;
+  background-color: #282c3471;
+  z-index: 1;
+  transition: opacity 0.3s ease, right 0.3s ease;
+  overflow-x: clip;
+}
+
+.mobile-menu.open {
+  right: 0;
+  opacity: 1;
+  width: 100%;
+}
+
+.mobile-menu ul {
+  list-style: none;
+  padding: 0;
+  text-align: center;
+}
+
+.mobile-menu ul li {
+  margin: 15px 0;
+}
+
+.mobile-menu a {
+  text-decoration: none;
+  color: white;
+  font-size: 24px;
+}
+
 .icons {
-  width: 30vh;
+  width: 30%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
 
 .socialLogo {
-  width: 4vh;
+  width: 51px;
   height: auto;
   filter: drop-shadow(2px 2px 8px #4f6b7a) drop-shadow(-2px -2px 8px #597889);
 }
@@ -146,6 +184,13 @@ html {
   transform: translate(-50%, -50%);
   text-align: center;
   z-index: 2;
+}
+
+.socialLogo:hover {
+  transition: 0.3s;
+  filter: drop-shadow(2px 2px 8px #ffffffa5)
+    drop-shadow(-2px -2px 8px #ffffffa5);
+  cursor: pointer;
 }
 
 .logo {
@@ -181,7 +226,7 @@ html {
 }
 
 .stem {
-  width: 2px;
+  width: 3px;
   height: 60%;
   margin-left: 7px;
   background: linear-gradient(
@@ -221,6 +266,7 @@ html {
 .aboutSmall {
   font-family: "Montserrat", sans-serif;
   color: white;
+  font-size: 20px;
   padding: none;
   user-select: none;
   text-align: center;
@@ -264,54 +310,42 @@ html {
   );
 }
 
+@keyframes moveCloud {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
 .cloud {
   position: absolute;
-  animation-duration: 30s;
+  animation-name: moveCloud;
+  /* animation-duration: 60s; */
   animation-timing-function: linear;
   animation-iteration-count: infinite;
+  animation-delay: 0s;
   transform-origin: left center;
 }
 
 .cloud1 {
-  animation-name: moveCloud1;
-  user-select: none;
+  animation: moveCloud 90s linear infinite;
 }
 
 .cloud2 {
-  animation-name: moveCloud2;
-  user-select: none;
+  animation: moveCloud 60s linear infinite;
+  mask-image: linear-gradient(
+    to left,
+    #00000000,
+    #000000 30%,
+    #000000 70%,
+    #00000000
+  );
 }
 
 .cloud3 {
-  animation-name: moveCloud3;
-  user-select: none;
-}
-
-@keyframes moveCloud1 {
-  0% {
-    transform: translateX(-20%);
-  }
-  100% {
-    transform: translateX(120%);
-  }
-}
-
-@keyframes moveCloud2 {
-  0% {
-    transform: translateX(-10%);
-  }
-  100% {
-    transform: translateX(60%);
-  }
-}
-
-@keyframes moveCloud3 {
-  0% {
-    transform: translateX(-5%);
-  }
-  100% {
-    transform: translateX(30%);
-  }
+  animation: moveCloud 50s linear infinite;
 }
 
 .music-main {
@@ -345,6 +379,7 @@ html {
   max-height: fit-content;
   position: relative;
   height: 50vh;
+  padding-bottom: 10vh;
 }
 
 .music-container .slick-list {
@@ -376,13 +411,13 @@ html {
   justify-content: center;
   align-items: center;
   height: 100%;
-  /* background-color: red; */
 }
 
 .slick-track {
   display: flex !important;
   justify-content: center;
   align-items: center;
+  margin-bottom: 10vh;
 }
 
 .iframe-wrapper {
@@ -441,4 +476,81 @@ html {
   -ms-user-select: none;
 }
 
+.soundcloud-container {
+  width: 100%;
+  align-items: center;
+  max-height: fit-content;
+  position: relative;
+}
+
+.iframe-container {
+  padding-left: 18vw;
+  padding-right: 18vw;
+  padding-bottom: 5vh;
+}
+
 /* MAKE SCREEN COLLAPSE AT 772PX */
+
+@media screen and (min-width: 969px) {
+  .mobile-menu {
+    display: none;
+  }
+
+  .mobile-menu.open {
+    right: -100%;
+  }
+  ::-webkit-scrollbar:horizontal {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 968px) {
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 0px;
+  }
+
+  .mobile-menu {
+    display: block;
+  }
+
+  .topBar {
+    justify-content: space-between;
+  }
+
+  .joey-tranvik {
+    display: flex;
+  }
+
+  .nav-begone {
+    display: none;
+  }
+
+  .bars {
+    display: flex;
+  }
+
+  .navBar {
+    padding-top: 0;
+    padding: 1vh;
+  }
+
+  .socialLogo {
+    width: 40px;
+  }
+}
+
+@media screen and (max-width: 524px) {
+  .joey-tranvik {
+    font-size: 1.5em;
+  }
+}
+
+@media screen and (max-width: 339px) {
+  .joey-tranvik {
+    font-size: 1.2em;
+  }
+
+  .socialLogo {
+    width: 30px;
+  }
+}
