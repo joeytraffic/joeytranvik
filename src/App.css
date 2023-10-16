@@ -476,6 +476,13 @@ html {
   -ms-user-select: none;
 }
 
+.coming-soon {
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+}
+
 .soundcloud-container {
   width: 100%;
   align-items: center;

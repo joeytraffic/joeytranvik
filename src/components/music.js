@@ -75,7 +75,7 @@ const Music = () => {
                   <iframe
                     src={item.src}
                     width="80%"
-                    height={item.height * 2.3}
+                    height={item.height}
                     frameBorder="0"
                     allowFullScreen={false}
                     allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
